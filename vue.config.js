@@ -9,4 +9,20 @@ module.exports = {
       return args;
     });
   },
+  // ...other vue-cli plugin options...
+  pwa: {
+    themeColor: "#FF0000",
+    msTileColor: "#FF0000",
+    appleMobileWebAppCapable: "yes",
+    appleMobileWebAppStatusBarStyle: "black-translucent",
+    manifestOptions: { display: "browser" },
+
+    // configure the workbox plugin
+    workboxPluginMode: "InjectManifest",
+    workboxOptions: {
+      // swSrc is required in InjectManifest mode.
+      swSrc: "src/registerServiceWorker.ts",
+      skipWaiting: true,
+    },
+  },
 };
